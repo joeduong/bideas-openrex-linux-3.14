@@ -100,6 +100,19 @@
 		hdmi-controller = <&hdmi_audio>;
 	};
 
+        sound {
+		compatible = "fsl,imx6-rex-sgtl5000",
+			     "fsl,imx-audio-sgtl5000";
+		model = "imx6-rex-sgtl5000";
+		ssi-controller = <&ssi1>;
+		audio-codec = <&codec>;
+		audio-routing = "MIC_IN", "Mic Jack",
+		                "Mic Jack", "Mic Bias",
+			        "Headphone Jack", "HP_OUT";
+		mux-int-port = <1>;
+		mux-ext-port = <3>;
+         };
+
 	mxcfb1: fb@0 {
 		compatible = "fsl,mxc_sdc_fb";
 		disp_dev = "hdmi";
