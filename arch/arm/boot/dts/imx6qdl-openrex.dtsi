@@ -65,9 +65,9 @@
 		#address-cells = <1>;
 		#size-cells = <0>;
 
-		reg_3p3v: regulator@0 {
+		reg_3p3v: regulator@1 {
 			compatible = "regulator-fixed";
-			reg = <0>;
+			reg = <1>;
 			regulator-name = "3P3V";
 			regulator-min-microvolt = <3300000>;
 			regulator-max-microvolt = <3300000>;
