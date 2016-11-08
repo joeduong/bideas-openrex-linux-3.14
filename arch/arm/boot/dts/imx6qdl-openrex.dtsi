@@ -65,9 +65,9 @@
 		#address-cells = <1>;
 		#size-cells = <0>;
 
-		reg_3p3v: regulator@1 {
+		reg_3p3v: regulator@0 {
 			compatible = "regulator-fixed";
-			reg = <1>;
+			reg = <0>;
 			regulator-name = "3P3V";
 			regulator-min-microvolt = <3300000>;
 			regulator-max-microvolt = <3300000>;
@@ -424,6 +424,7 @@
 */
 
 &ssi1 {
+	fsl,mode = "i2s-slave";
 	status = "okay";
 };
 
