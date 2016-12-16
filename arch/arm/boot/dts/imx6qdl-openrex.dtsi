@@ -487,6 +487,18 @@
 	status = "okay";
 };
 
+&uart4 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_uart4>;
+	status = "okay";
+};
+
+&uart5 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_uart5>;
+	status = "okay";
+};
+
 &usbh1 {
 	status = "okay";
 };
@@ -678,6 +690,20 @@
 				MX6QDL_PAD_SD3_DAT4__UART2_RX_DATA	0x1b0b1
 			>;
 		};
+
+    pinctrl_uart4: uart4grp {
+      fsl,pins = <
+        MX6QDL_PAD_KEY_COL0__UART4_TX_DATA  0x1b0b1
+        MX6QDL_PAD_KEY_ROW0__UART4_RX_DATA  0x1b0b1
+      >;
+    };
+
+    pinctrl_uart5: uart5grp {
+      fsl,pins = <
+        MX6QDL_PAD_KEY_COL1__UART5_TX_DATA  0x1b0b1
+        MX6QDL_PAD_KEY_ROW1__UART5_RX_DATA  0x1b0b1
+      >;
+    };
 
 		pinctrl_usbotg: usbotggrp {
 			fsl,pins = <
