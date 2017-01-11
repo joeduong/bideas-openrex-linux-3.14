@@ -73,6 +73,15 @@
 			regulator-max-microvolt = <3300000>;
 			regulator-always-on;
 		};
+
+    reg_2p5v: regulator@1 {
+      compatible = "regulator-fixed";
+			reg = <1>;
+      regulator-name = "2P5V";
+      regulator-min-microvolt = <2500000>;
+      regulator-max-microvolt = <2500000>;
+    };
+
 	};
 
 	gpio-keys {
@@ -283,7 +292,7 @@
 		compatible = "fsl,sgtl5000";
 		reg = <0x0a>;
 		clocks = <&clks IMX6QDL_CLK_CKO>;
-		VDDA-supply = <&reg_3p3v>;
+		VDDA-supply = <&reg_2p5v>;
 		VDDIO-supply = <&reg_3p3v>;
 	};
 
@@ -484,6 +493,13 @@
 &uart2 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_uart2>;
+	status = "okay";
+};
+
+&uart3 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_uart3>;
+  fsl,uart-has-rtscts;
 	status = "okay";
 };
 
@@ -688,6 +704,15 @@
 			fsl,pins = <
 				MX6QDL_PAD_SD3_DAT5__UART2_TX_DATA	0x1b0b1
 				MX6QDL_PAD_SD3_DAT4__UART2_RX_DATA	0x1b0b1
+			>;
+		};
+
+		pinctrl_uart3: uart3grp {
+			fsl,pins = <
+        MX6QDL_PAD_EIM_D24__UART3_TX_DATA 0x1b0b1
+        MX6QDL_PAD_EIM_D25__UART3_RX_DATA 0x1b0b1
+        MX6QDL_PAD_EIM_D23__UART3_CTS_B   0x1b0b1
+        MX6QDL_PAD_EIM_EB3__UART3_RTS_B   0x1b0b1
 			>;
 		};
 
